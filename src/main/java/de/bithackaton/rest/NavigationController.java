@@ -27,8 +27,8 @@ public class NavigationController {
         navigationMap.setImageBase64("DUMMY");
 
         final List<ShoppingItem> itemList = new ArrayList<>();
-        itemList.add(createItem("Butter", "Echt Bayrisch", getQuantity(100, GRAM)));
-        itemList.add(createItem("Waschmittel", "Wäscht Weiss",getQuantity(250, MILLI(LITRE))));
+        itemList.add(createItem("Butter", "Echt Bayrisch", getQuantity(250, GRAM)));
+        itemList.add(createItem("Waschmittel", "Wäscht Weiss",getQuantity(500, MILLI(LITRE))));
         final ShoppingList list = new ShoppingList();
         list.setItems(itemList);
         list.setCurrentLocation(new Point(1, 2));
