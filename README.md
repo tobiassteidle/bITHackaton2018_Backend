@@ -8,22 +8,23 @@ Input:
 		"coordinates": [10, 10] 
 	},
 
-	"items": [
-		{
-			"name": "Butter",
-			"description": "Etwas fettig"
-		},
-		{
-			"name": "Waschmittel",
-			"description": "Sehr giftig"
-		}
-	]
+	"items": "Butter,Waschmittel"
 }
 ```
 
 Output:
 ```
 {
-    "imageBase64": "DUMMY"
+    "imageBase64": "DUMMY",
+    "shoppingItems": [
+        {
+            "name": "Butter",
+            "description": "Ziemlich Fettig"
+        },
+        {
+            "name": "Waschmittel",
+            "description": "Sehr giftig"
+        }
+    ]
 }
 ```
