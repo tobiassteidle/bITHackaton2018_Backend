@@ -5,11 +5,11 @@ package de.bithackaton.model;
  * Author: tsteidle
  * Created: 08.06.18
  */
-public class Navigation {
+public class NavigationMap {
     private final long id;
     private final String content;
 
-    public Navigation(long id, String content) {
+    public NavigationMap(long id, String content) {
         this.id = id;
         this.content = content;
     }
