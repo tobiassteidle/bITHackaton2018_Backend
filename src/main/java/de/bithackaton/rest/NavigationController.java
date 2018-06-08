@@ -1,14 +1,20 @@
 package de.bithackaton.rest;
 
+import static tec.units.indriya.quantity.Quantities.getQuantity;
+import static tec.units.indriya.unit.Units.GRAM;
+import static tec.units.indriya.unit.Units.LITRE;
+import static tec.units.indriya.unit.MetricPrefix.MILLI;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import de.bithackaton.model.NavigationMap;
 import de.bithackaton.model.ShoppingItem;
 import de.bithackaton.model.ShoppingList;
 import org.geojson.Point;
 import org.springframework.web.bind.annotation.*;
+
+import javax.measure.Quantity;
 
 @RestController
 public class NavigationController {
@@ -21,16 +27,20 @@ public class NavigationController {
         navigationMap.setImageBase64("DUMMY");
 
         final List<ShoppingItem> itemList = new ArrayList<>();
-        itemList.add(createItem("Butter", "Ziemlich Fettig"));
-        itemList.add(createItem("Waschmittel", "Sehr giftig"));
-        navigationMap.setShoppingItems(itemList);
+        itemList.add(createItem("Butter", "Echt Bayrisch", getQuantity(100, GRAM)));
+        itemList.add(createItem("Waschmittel", "Wäscht Weiss",getQuantity(250, MILLI(LITRE))));
+        final ShoppingList list = new ShoppingList();
+        list.setItems(itemList);
+        list.setCurrentLocation(new Point(1, 2));
+        navigationMap.setShoppingList(list);
         return navigationMap;
     }
 
-    private ShoppingItem createItem(String name, String description) {
+    private ShoppingItem createItem(String name, String description, Quantity quantity) {
         final ShoppingItem shoppingItem = new ShoppingItem();
         shoppingItem.setName(name);
         shoppingItem.setDescription(description);
+        shoppingItem.setQuantity(quantity);
         return shoppingItem;
     }
 

@@ -4,13 +4,14 @@ import java.util.List;
 
 /**
  * bITHackaton2018
- * Author: tsteidle
  * Created: 08.06.18
+ * @author tsteidle
+ * @author keilw
  */
 public class NavigationMap {
 
     private String imageBase64;
-    private List<ShoppingItem> shoppingItems;
+    private ShoppingList shoppingList;
 
     public String getImageBase64() {
         return imageBase64;
@@ -20,11 +21,11 @@ public class NavigationMap {
         this.imageBase64 = imageBase64;
     }
 
-    public List<ShoppingItem> getShoppingItems() {
-        return shoppingItems;
+    public ShoppingList getShoppingList() {
+        return shoppingList;
     }
 
-    public void setShoppingItems(List<ShoppingItem> shoppingItems) {
-        this.shoppingItems = shoppingItems;
+    public void setShoppingList(ShoppingList shoppingList) {
+        this.shoppingList = shoppingList;
     }
 }
