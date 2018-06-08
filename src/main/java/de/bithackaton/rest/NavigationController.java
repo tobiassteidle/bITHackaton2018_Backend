@@ -12,6 +12,7 @@ public class NavigationController {
 
     @RequestMapping(value = "/navigate", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
+    @CrossOrigin
     public NavigationMap navigate(@RequestBody ShoppingList shoppingList) throws Exception {
         final NavigationMap navigationMap = new NavigationMap();
         navigationMap.setImageBase64("DUMMY");
