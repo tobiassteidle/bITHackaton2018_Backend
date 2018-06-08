@@ -6,19 +6,14 @@ package de.bithackaton.model;
  * Created: 08.06.18
  */
 public class NavigationMap {
-    private final long id;
-    private final String content;
 
-    public NavigationMap(long id, String content) {
-        this.id = id;
-        this.content = content;
+    private String imageBase64;
+
+    public String getImageBase64() {
+        return imageBase64;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getContent() {
-        return content;
+    public void setImageBase64(String imageBase64) {
+        this.imageBase64 = imageBase64;
     }
 }
