@@ -1,0 +1,12 @@
+---
+applications:
+- name: bitHackaton
+  memory: 1G  
+  path: build/libs/bitHackaton.jar
+  host: bithackaton
+  domain: cfapps.eu10.hana.ondemand.com
+  instances: 1
+    
+    
+    
+   
