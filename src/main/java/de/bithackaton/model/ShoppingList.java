@@ -11,6 +11,23 @@ import java.util.List;
  */
 public class ShoppingList {
 
+    public Point getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Point currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
     private Point currentLocation;
-    private String items;
+
+    public List<ShoppingItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ShoppingItem> items) {
+        this.items = items;
+    }
+
+    private List<ShoppingItem> items;
 }
