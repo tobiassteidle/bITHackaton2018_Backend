@@ -4,6 +4,4 @@ out/
 .DS_Store
 .gradle/
 *.iml
-.project
-.classpath
-.springBeans
+/bin/
