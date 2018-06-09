@@ -1,6 +1,44 @@
 # bITHackaton2018
 
-Input:
+#### Rest
+
+##### Abfrage aller Artikel
+```
+HTTP-GET: http://localhost:8080/salesitems
+```
+Output:
+```
+[
+    {
+        "name": "Butter",
+        "description": "Wirklich Fettig",
+        "point": {
+            "type": "Point",
+            "coordinates": [
+                5,
+                4
+            ]
+        }
+    },
+    {
+        "name": "Milch",
+        "description": "3,5% Fett",
+        "point": {
+            "type": "Point",
+            "coordinates": [
+                3,
+                10
+            ]
+        }
+    }
+]
+```
+
+##### Navigation nach Einkaufsliste:
+```
+HTTP-POST: http://localhost:8080/navigate
+```
+Request-Body:
 ```
 { 
 	"currentLocation": { 

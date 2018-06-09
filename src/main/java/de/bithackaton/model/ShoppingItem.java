@@ -9,27 +9,9 @@ import javax.measure.Quantity;
  * Author: tsteidle
  * Created: 08.06.18
  */
-public class ShoppingItem {
+public class ShoppingItem extends SalesItem {
 
-    private String name;
-    private String description;
     private Quantity quantity;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getQuantity() {
         return QuantityFormat.getInstance().format(quantity);
@@ -42,8 +24,8 @@ public class ShoppingItem {
     @Override
     public String toString() {
         return "ShoppingItem{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                "name='" + this.getName() + '\'' +
+                ", description='" + this.getDescription() + '\'' +
                 ", quantity='" + getQuantity() + '\'' +
                 '}';
     }
