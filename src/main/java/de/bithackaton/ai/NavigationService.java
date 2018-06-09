@@ -76,12 +76,13 @@ public class NavigationService {
         final ShoppingCart shoppingCart = new ShoppingCart();
         for(final Node node : completeNavigationNodes) {
             graphics2D.fillRect(node.getCol(), image.getHeight() - node.getRow(), 1, 1);
-            if(node instanceof SalesItemNode) {
-                shoppingCart.addItem(((SalesItemNode)node).getSalesItem());
-            }
         }
 
-        //ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/test.bmp"));
+        for(final SalesItemNode salesItemNode : navigateList) {
+            shoppingCart.addItem(salesItemNode.getSalesItem());
+        }
+
+        ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/test.bmp"));
 
         final NavigationMap navigationMap = new NavigationMap();
         shoppingCart.setCurrentLocation(currentPosition);
@@ -124,3 +125,4 @@ public class NavigationService {
         return aStar.findPath();
     }
 }
+
