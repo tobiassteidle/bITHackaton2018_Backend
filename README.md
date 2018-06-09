@@ -19,11 +19,13 @@ Output:
     "shoppingItems": [
         {
             "name": "Butter",
-            "description": "Ziemlich Fettig"
+           	"description": "Echt Bayrisch",
+           	"quantity": "250 g"
         },
         {
             "name": "Waschmittel",
-            "description": "Sehr giftig"
+            "description": "Wäscht Weiss",
+            "quantity": "500 ml"
         }
     ]
 }
