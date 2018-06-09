@@ -1,6 +1,8 @@
 package de.bithackaton.ai;
 
+import de.bithackaton.model.NavigationMap;
 import de.bithackaton.model.SalesItem;
+import de.bithackaton.model.ShoppingCart;
 import org.geojson.LngLatAlt;
 import org.geojson.Point;
 import org.springframework.stereotype.Service;
@@ -39,7 +41,7 @@ public class NavigationService {
         this.navigationMapBlockingArray = MapUtils.imageToBlockingArray(getClass().getResourceAsStream(NAVIGATION_MAP));
     }
 
-    public String buildNavigationMap(final Point currentPosition, final List<SalesItem> salesItems) throws IOException {
+    public NavigationMap buildNavigationMap(final Point currentPosition, final List<SalesItem> salesItems) throws IOException {
         final List<SalesItemNode> navigateList = new ArrayList<>();
 
         // Start with currentPostion
@@ -70,16 +72,27 @@ public class NavigationService {
         final Graphics2D graphics2D = image.createGraphics();
         graphics2D.setColor(Color.RED);
         graphics2D.setStroke(BASIC_STROKE);
+
+        final ShoppingCart shoppingCart = new ShoppingCart();
         for(final Node node : completeNavigationNodes) {
             graphics2D.fillRect(node.getCol(), image.getHeight() - node.getRow(), 1, 1);
+            if(node instanceof SalesItemNode) {
+                shoppingCart.addItem(((SalesItemNode)node).getSalesItem());
+            }
         }
 
-      //  ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/grid_map.bmp"));
+        //ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/test.bmp"));
+
+        final NavigationMap navigationMap = new NavigationMap();
+        shoppingCart.setCurrentLocation(currentPosition);
+        navigationMap.setShoppingCart(shoppingCart);
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(image, "bmp", bos );
+        ImageIO.write(image, "png", bos );
         final byte [] data = bos.toByteArray();
-        return Base64Utils.encodeToString(data);
+        navigationMap.setImageBase64(Base64Utils.encodeToString(data));
+
+        return navigationMap;
     }
 
     private SalesItemNode getClosestSalesItemNode(final Point currentPosition, final List<SalesItem> salesItems) {

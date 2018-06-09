@@ -27,14 +27,7 @@ public class NavigationMapServiceImpl implements NavigationMapService {
 	@Override
 	public NavigationMap createNavigationMap(final ShoppingList shoppingList) throws IOException {
 		if(shoppingList != null) {
-			final NavigationMap navigationMap = new NavigationMap();
-			final ShoppingCart shoppingCart = new ShoppingCart();
 			final List<SalesItem> salesItems = new ArrayList<>();
-			
-			shoppingCart.setItems(salesItems);
-			shoppingCart.setCurrentLocation(shoppingList.getCurrentLocation());
-			navigationMap.setShoppingCart(shoppingCart);
-			
 			final String[] items = shoppingList.getItems().split(",");		
 			
 			for(final String item : items) {
@@ -46,8 +39,7 @@ public class NavigationMapServiceImpl implements NavigationMapService {
 			}
 
 			//TODO: MapService von Tobias einbauen!
-			navigationMap.setImageBase64(this.navigationService.buildNavigationMap(shoppingList.getCurrentLocation() ,salesItems));
-			
+			final NavigationMap navigationMap = this.navigationService.buildNavigationMap(shoppingList.getCurrentLocation() ,salesItems);
 			return navigationMap;
 		}
 		

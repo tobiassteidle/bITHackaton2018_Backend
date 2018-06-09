@@ -2,6 +2,7 @@ package de.bithackaton.model;
 
 import org.geojson.Point;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,4 +31,11 @@ public class ShoppingCart {
     }
 
     private List<SalesItem> items;
+
+    public void addItem(SalesItem salesItem) {
+        if(this.items == null) {
+            this.items = new ArrayList<>();
+        }
+        this.items.add(salesItem);
+    }
 }
