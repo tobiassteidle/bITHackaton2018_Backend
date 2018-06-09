@@ -29,6 +29,16 @@ public class SalesItemsRepository {
         this.salesItems = objectMapper.readValue(inputStream, new TypeReference<List<SalesItem>>(){});
     }
 
+    public SalesItem getSalesItemForName(final String salesItemName) {
+    	for(final SalesItem salesItem : this.salesItems) {
+    		if(salesItem.getName().equals(salesItemName)) {
+    			return salesItem;
+    		}
+    	}
+    	
+    	return null;
+    }
+    
     public List<SalesItem> getSalesItems() {
         return salesItems;
     }
