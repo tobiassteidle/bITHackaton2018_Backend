@@ -1,5 +1,9 @@
 package de.bithackaton.ai;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,4 +29,40 @@ public class MapUtils {
 
         return resultList.toArray(new int[map.length][map.length]);
     }
+
+    public static int[][] imageToBlockingArray(final InputStream inputStream) throws IOException {
+        final BufferedImage image = ImageIO.read(inputStream);
+        final String [][] asciiMap = new String[image.getHeight()][image.getWidth()];
+
+        for(int x = 0; x < image.getWidth(); x++) {
+            for(int y = 0; y < image.getHeight(); y++) {
+                final int color = image.getRGB(x, y);
+                asciiMap[y][x] = color == -1 ? "*" : "X";
+            }
+        }
+
+        return createBlockingArray(asciiMap);
+    }
+
+    public void printMap(final InputStream inputStream) throws IOException {
+        final BufferedImage image = ImageIO.read(inputStream);
+        final String [][] asciiMap = new String[image.getHeight()][image.getWidth()];
+
+        for(int x = 0; x < image.getWidth(); x++) {
+            for(int y = 0; y < image.getHeight(); y++) {
+                final int color = image.getRGB(x, y);
+                asciiMap[y][x] = color == -1 ? "*" : "X";
+            }
+        }
+
+        for(int x = 0; x < asciiMap.length; x++) {
+            for(int y = 0; y < asciiMap[x].length; y++) {
+
+                System.out.print(asciiMap[x][y]);
+            }
+            System.out.println("\n");
+        }
+
+    }
+
 }

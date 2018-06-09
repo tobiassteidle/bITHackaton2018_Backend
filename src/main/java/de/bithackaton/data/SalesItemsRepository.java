@@ -18,12 +18,14 @@ import java.util.List;
 @Repository
 public class SalesItemsRepository {
 
+    private static final String REPOSITORY_RESOURCE = "/salesItems.json";
+
     private List<SalesItem> salesItems;
 
     @PostConstruct
     public void loadSalesItems() throws IOException {
         final ObjectMapper objectMapper = new ObjectMapper();
-        final InputStream inputStream = this.getClass().getResourceAsStream("/salesItems.json");
+        final InputStream inputStream = this.getClass().getResourceAsStream(REPOSITORY_RESOURCE);
         this.salesItems = objectMapper.readValue(inputStream, new TypeReference<List<SalesItem>>(){});
     }
 
