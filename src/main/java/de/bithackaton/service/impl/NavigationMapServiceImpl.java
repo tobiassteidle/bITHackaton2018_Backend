@@ -1,8 +1,10 @@
 package de.bithackaton.service.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.bithackaton.ai.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,12 @@ public class NavigationMapServiceImpl implements NavigationMapService {
 
 	@Autowired
 	private SalesItemsRepository salesItemsRepository;
+
+	@Autowired
+	private NavigationService navigationService;
 	
 	@Override
-	public NavigationMap createNavigationMap(final ShoppingList shoppingList) {
+	public NavigationMap createNavigationMap(final ShoppingList shoppingList) throws IOException {
 		if(shoppingList != null) {
 			final NavigationMap navigationMap = new NavigationMap();
 			final ShoppingCart shoppingCart = new ShoppingCart();
@@ -41,6 +46,7 @@ public class NavigationMapServiceImpl implements NavigationMapService {
 			}
 
 			//TODO: MapService von Tobias einbauen!
+			navigationMap.setImageBase64(this.navigationService.buildNavigationMap(shoppingList.getCurrentLocation() ,salesItems));
 			
 			return navigationMap;
 		}
