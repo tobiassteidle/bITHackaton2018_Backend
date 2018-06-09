@@ -27,14 +27,17 @@ public class NavigationMapServiceImpl implements NavigationMapService {
 			final List<SalesItem> salesItems = new ArrayList<>();
 			
 			shoppingCart.setItems(salesItems);
-			shoppingCart.setCurrentLocation(shoppingCart.getCurrentLocation());
+			shoppingCart.setCurrentLocation(shoppingList.getCurrentLocation());
 			navigationMap.setShoppingCart(shoppingCart);
 			
 			final String[] items = shoppingList.getItems().split(",");		
 			
 			for(final String item : items) {
 				final SalesItem salesItem = this.salesItemsRepository.getSalesItemForName(item);
-				salesItems.add(salesItem);
+				
+				if(salesItem != null) {
+					salesItems.add(salesItem);
+				}
 			}
 
 			//TODO: MapService von Tobias einbauen!

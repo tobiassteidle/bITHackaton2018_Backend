@@ -1,17 +1,20 @@
 package de.bithackaton.rest;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import de.bithackaton.data.SalesItemsRepository;
 import de.bithackaton.model.NavigationMap;
 import de.bithackaton.model.SalesItem;
 import de.bithackaton.model.ShoppingList;
 import de.bithackaton.service.NavigationMapService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-import static de.bithackaton.data.NavigationTestData.getNavigation;
 
 @RestController
 public class NavigationController {
@@ -31,8 +34,7 @@ public class NavigationController {
     @ResponseBody
     @CrossOrigin
     public NavigationMap navigate(@RequestBody ShoppingList shoppingList) throws Exception {
-        System.out.println(shoppingList);
-        final NavigationMap navigationMap = getNavigation(shoppingList);
+        final NavigationMap navigationMap = this.navigationMapService.createNavigationMap(shoppingList);
         return navigationMap;
     }
 }
