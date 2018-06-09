@@ -3,6 +3,8 @@ package de.bithackaton.image;
 import de.bithackaton.ai.AStar;
 import de.bithackaton.ai.MapUtils;
 import de.bithackaton.ai.Node;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.util.Base64Utils;
 
@@ -51,7 +53,6 @@ public class ImageTest {
         byte [] data = bos.toByteArray();
         System.out.println(Base64Utils.encodeToString(data));
 
-
-        ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/grid_map.bmp"));
+         ImageIO.write(image, "bmp", new File("out/grid_map.bmp"));
     }
 }

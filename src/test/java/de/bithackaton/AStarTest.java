@@ -4,6 +4,7 @@ import de.bithackaton.ai.AStar;
 import de.bithackaton.ai.MapUtils;
 import de.bithackaton.ai.Node;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
