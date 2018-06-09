@@ -74,7 +74,7 @@ public class NavigationService {
             graphics2D.fillRect(node.getCol(), image.getHeight() - node.getRow(), 1, 1);
         }
 
-        ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/grid_map.bmp"));
+      //  ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/grid_map.bmp"));
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(image, "bmp", bos );
