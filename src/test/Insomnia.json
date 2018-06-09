@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-06-09T12:03:08.704Z",
+	"__export_date": "2018-06-09T12:11:39.793Z",
 	"__export_source": "insomnia.desktop.app:v5.16.6",
 	"resources": [
 		{
@@ -54,6 +54,19 @@
 			"isPrivate": false,
 			"modified": 1528545725010,
 			"name": "Local",
+			"parentId": "env_c8614b799de540209a5c09e76316d843",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_2fb296e9470145aa957c725bde0676d2",
+			"color": null,
+			"created": 1528545908230,
+			"data": {
+				"rootContext": "https://bithackaton.cfapps.eu10.hana.ondemand.com"
+			},
+			"isPrivate": false,
+			"modified": 1528546263344,
+			"name": "Cloud",
 			"parentId": "env_c8614b799de540209a5c09e76316d843",
 			"_type": "environment"
 		},
