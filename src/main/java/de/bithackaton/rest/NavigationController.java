@@ -4,6 +4,8 @@ import de.bithackaton.data.SalesItemsRepository;
 import de.bithackaton.model.NavigationMap;
 import de.bithackaton.model.SalesItem;
 import de.bithackaton.model.ShoppingList;
+import de.bithackaton.service.NavigationMapService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,9 @@ public class NavigationController {
     @Autowired
     private SalesItemsRepository salesItemsRepository;
 
+    @Autowired
+    private NavigationMapService navigationMapService;
+    
     @RequestMapping("/salesitems")
     public List<SalesItem> salesitems() {
         return salesItemsRepository.getSalesItems();

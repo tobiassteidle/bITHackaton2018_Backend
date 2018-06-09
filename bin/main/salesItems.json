@@ -1,0 +1,15 @@
+[ {
+  "name" : "Butter",
+  "description" : "Wirklich Fettig",
+  "point" : {
+    "type" : "Point",
+    "coordinates" : [ 5.0, 4.0 ]
+  }
+}, {
+  "name" : "Milch",
+  "description" : "3,5% Fett",
+  "point" : {
+    "type" : "Point",
+    "coordinates" : [ 3.0, 10.0 ]
+  }
+} ]

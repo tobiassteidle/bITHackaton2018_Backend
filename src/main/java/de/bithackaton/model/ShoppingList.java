@@ -2,8 +2,6 @@ package de.bithackaton.model;
 
 import org.geojson.Point;
 
-import java.util.List;
-
 /**
  * bITHackaton2018
  * Author: tsteidle

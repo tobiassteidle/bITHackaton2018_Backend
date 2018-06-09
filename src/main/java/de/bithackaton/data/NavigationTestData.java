@@ -6,6 +6,7 @@ import static tec.units.indriya.unit.Units.LITRE;
 import static tec.units.indriya.unit.MetricPrefix.MILLI;
 
 import de.bithackaton.model.NavigationMap;
+import de.bithackaton.model.SalesItem;
 import de.bithackaton.model.ShoppingItem;
 import de.bithackaton.model.ShoppingCart;
 
@@ -36,7 +37,7 @@ public abstract class NavigationTestData {
         final NavigationMap navigationMap = new NavigationMap();
         navigationMap.setImageBase64("DUMMY");
         String[] listItems = list.getItems().split(",");
-        final List<ShoppingItem> itemList = new ArrayList<>();
+        final List<SalesItem> itemList = new ArrayList<>();
         for (String item: listItems
              ) {
             itemList.add(ITEM_REPOSITORY.get(item));

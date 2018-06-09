@@ -21,13 +21,13 @@ public class ShoppingCart {
 
     private Point currentLocation;
 
-    public List<ShoppingItem> getItems() {
+    public List<SalesItem> getItems() {
         return items;
     }
 
-    public void setItems(List<ShoppingItem> items) {
+    public void setItems(List<SalesItem> items) {
         this.items = items;
     }
 
-    private List<ShoppingItem> items;
+    private List<SalesItem> items;
 }
