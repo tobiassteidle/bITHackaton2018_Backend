@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import de.bithackaton.data.SalesItemsRepository;
 import de.bithackaton.model.NavigationMap;
 import de.bithackaton.model.SalesItem;
-import de.bithackaton.model.ShoppingCart;
 import de.bithackaton.model.ShoppingList;
 import de.bithackaton.service.NavigationMapService;
 
