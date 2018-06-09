@@ -3,13 +3,34 @@
   "description" : "Wirklich Fettig",
   "point" : {
     "type" : "Point",
-    "coordinates" : [ 5.0, 4.0 ]
+    "coordinates" : [ 43.0, 13.0 ]
   }
 }, {
   "name" : "Milch",
   "description" : "3,5% Fett",
   "point" : {
     "type" : "Point",
-    "coordinates" : [ 3.0, 10.0 ]
+    "coordinates" : [ 68.0, 17.0 ]
+  }
+}, {
+  "name" : "Zahnpasta",
+  "description" : "Dr. Med",
+  "point" : {
+    "type" : "Point",
+    "coordinates" : [ 112.0, 27.0 ]
+  }
+}, {
+  "name" : "Aepfel",
+  "description" : "Lecker lecker",
+  "point" : {
+    "type" : "Point",
+    "coordinates" : [ 140.0, 42.0 ]
+  }
+}, {
+  "name" : "Pizza",
+  "description" : "Salami, Schinken",
+  "point" : {
+    "type" : "Point",
+    "coordinates" : [ 66.0, 42.0 ]
   }
 } ]
