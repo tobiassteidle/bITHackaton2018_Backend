@@ -48,19 +48,21 @@ public class NavigationService {
         LngLatAlt lngLatAlt = currentPosition.getCoordinates();
         Node currentPostion = new Node((int)lngLatAlt.getLongitude(), (int)lngLatAlt.getLatitude());
 
+        // Find closest sales item to my current location
         while(!salesItems.isEmpty()) {
             final SalesItemNode currentNode = getClosestSalesItemNode(currentPosition, salesItems);
             if(currentNode != null) {
                 salesItems.remove(currentNode.getSalesItem());
                 navigateList.add(currentNode);
-
                 currentPostion = new Node(currentNode.getRow(), currentNode.getCol());
             }
         }
 
+        // Update target position to current coordinates
         lngLatAlt = currentPosition.getCoordinates();
         Node targetPosition = new Node((int)lngLatAlt.getLongitude(), (int)lngLatAlt.getLatitude());
 
+        //  Navigate from point to point
         final List<Node> completeNavigationNodes = new ArrayList<>();
         for(final SalesItemNode itemNode : navigateList) {
             final List<Node> nodes = pointToPointNavigation(targetPosition, itemNode);
@@ -68,6 +70,7 @@ public class NavigationService {
             completeNavigationNodes.addAll(nodes);
         }
 
+        // Draw Navigation Map
         final BufferedImage image = ImageIO.read(getClass().getResourceAsStream(NAVIGATION_MAP));
         final Graphics2D graphics2D = image.createGraphics();
         graphics2D.setColor(Color.RED);
@@ -82,7 +85,7 @@ public class NavigationService {
             shoppingCart.addItem(salesItemNode.getSalesItem());
         }
 
-        ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/test.bmp"));
+        //ImageIO.write(image, "bmp", new File("/Users/tsteidle/Documents/Entwicklung/bITHackaton2018/src/test/resources/test.bmp"));
 
         final NavigationMap navigationMap = new NavigationMap();
         shoppingCart.setCurrentLocation(currentPosition);
