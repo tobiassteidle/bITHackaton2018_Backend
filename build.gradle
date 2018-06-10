@@ -28,9 +28,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile 'tec.units:indriya:1.0'
     compile("org.springframework.boot:spring-boot-starter-web")
     compile group: 'de.grundid.opendatalab', name: 'geojson-jackson', version: '1.8'
-
+	compile group: 'tech.units', name: 'indriya', version: '1.2'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

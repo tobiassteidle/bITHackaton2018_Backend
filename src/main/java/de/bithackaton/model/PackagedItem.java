@@ -1,6 +1,6 @@
 package de.bithackaton.model;
 
-import tec.units.indriya.format.QuantityFormat;
+import tech.units.indriya.format.SimpleQuantityFormat;
 
 import javax.measure.Quantity;
 
@@ -15,7 +15,7 @@ public class PackagedItem extends SalesItem {
     private Quantity quantity;
 
     public String getQuantity() {
-        return QuantityFormat.getInstance().format(quantity);
+        return SimpleQuantityFormat.getInstance().format(quantity);
     }
 
     public void setQuantity(Quantity quantity) {
