@@ -57,13 +57,13 @@ Output:
     "shoppingItems": [
         {
             "name": "Butter",
-           	"description": "Echt Bayrisch",
+           	"description": "Wirklich Fettig",
            	"quantity": "250 g"
         },
         {
-            "name": "Waschmittel",
-            "description": "Wäscht Weiss",
-            "quantity": "500 ml"
+            "name": "Milch",
+            "description": "3,5% Fett",
+            "quantity": "1 l"
         }
     ]
 }
