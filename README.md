@@ -46,7 +46,7 @@ Request-Body:
 		"coordinates": [10, 10] 
 	},
 
-	"items": "Butter,Waschmittel"
+	"items": "Butter,Milch"
 }
 ```
 
